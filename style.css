@@ -1,0 +1,77 @@
+
+*{
+    /* border-color:red;
+    border-width:1px;
+    border-style: solid; */
+    font-family:Comic Sans MS, Comic Sans, cursive;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(207, 204, 195);
+    flex-shrink: 0;
+    
+    
+}
+
+#header1{
+    color:black;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-size:50px;
+    margin-bottom: 80px;
+}
+#content{
+    display:flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+#options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:30px;
+}
+
+button{
+    color:black;
+    background-color:transparent;
+    border-radius: 7px;
+    border-color: white;
+    border-width: 2px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    
+}
+
+#container{
+    border-color:black;
+    background-color: white;
+    border-width:5px;
+    border-style: solid;
+    border-radius: 7px;
+    width:480px;
+    height:480px;
+    margin-left: 60px;
+    margin-right: 200px;
+    display:grid;
+    /* grid-template-rows: repeat(64, 30px);
+    grid-template-columns: repeat(64, 30px); */
+}
+
+#copyright{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#value{
+    text-align: center;
+}
