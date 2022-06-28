@@ -2,7 +2,7 @@
 
 const size = 480;
 let numOfGrids = 16;
-let colorState = false;
+let colorState = "Black"
 const container = document.querySelector("#container")
 
 container.style.gridTemplateRows="repeat("+numOfGrids+", "+(size/numOfGrids)+"px)";
@@ -23,10 +23,12 @@ grids = document.querySelectorAll(".grid");
 function gridPaint(grids){
     grids.forEach((grid) => {
         grid.addEventListener('mouseover', () => {
-            if(colorState){
+            if(colorState=="RGB"){
                 grid.style.backgroundColor = "#"+Math.floor(Math.random()*16777215).toString(16);
-            }else{
+            }else if(colorState=="Black"){
                 grid.style.backgroundColor = "black";
+            }else if(colorState=="White"){
+                grid.style.backgroundColor = "white";
             }
             
         });
@@ -41,14 +43,19 @@ clear.addEventListener('click',() => {
     })
   })
 
+const erase = document.querySelector("#erase");
+erase.addEventListener('click',() => {
+      colorState = "White";
+})
+
 const RGB = document.querySelector("#RGB");
 RGB.addEventListener('click',() => {
-    colorState = true;
+    colorState = "RGB";
 })
 
 const black = document.querySelector("#black");
 black.addEventListener('click',() => {
-    colorState = false;
+    colorState = "Black";
 })
 
 let slider = document.querySelector("#pixel-slider");
@@ -61,7 +68,6 @@ slider.oninput = function() {
     grids.forEach((grid) => {
         container.removeChild(grid);
     })
-    
     numOfGrids = Math.round(this.value*(48/99)+(1584/99));
     container.style.gridTemplateRows="repeat("+numOfGrids+", "+(size/numOfGrids)+"px)";
     container.style.gridTemplateColumns="repeat("+numOfGrids+", "+(size/numOfGrids)+"px)";
@@ -70,5 +76,3 @@ slider.oninput = function() {
     grids = document.querySelectorAll(".grid");
     gridPaint(grids);
 }
-
-
